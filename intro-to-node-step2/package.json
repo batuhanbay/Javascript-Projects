@@ -1,0 +1,14 @@
+{
+  "name": "intro-to-node-step2",
+  "version": "1.0.0",
+  "description": "this is the into to node project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mustafa Batuhan Bayoglu",
+  "license": "ISC",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}
