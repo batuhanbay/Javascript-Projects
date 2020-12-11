@@ -5,49 +5,44 @@ const bodyParser = require("body-parser");
 const app = express();
 
 
-app.set('view engine', 'ejs');
+let items=[];//Arrays for store new ToDo Items
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.set('view engine', 'ejs'); // Process of Setting EJS to project 
 
-const today = new Date();
-const currentDay = today.getDay();
-let day = "";
 
-app.get("/", (req, res) =>{
+app.use(bodyParser.urlencoded({ extended: true })); // To use body parser , set extended as true
 
+
+app.get("/", (req, res) => {
+
+  const options = {//The object was created in order to use date of format method
+    weekday : "long",
+    day: "numeric",
+    month: "long"
+  };
+  const today = new Date(); //DateConstructor
+  const day = today.toLocaleDateString("en-US",options); //Format the day variable
+
+  res.render("list", { //Rendering process
+    kindOfDay: day ,
+    newListItems: items
   
-  switch (currentDay) {
-    case 0:
-      day = "Sunday"
-      break;
-    case 1:
-      day = "Monday"
-      break;
-    case 2:
-      day = "Tuesday"
-      break;
-    case 3:
-      day = "Weednesday"
-      break;
-    case 4:
-      day = "Thursday"
-      break;
-    case 5:
-      day = "Friday"
-      break;
-    case 6:
-      day = "Saturday"
-      break;
+  });
+
+});
+
+
+app.post("/",(req,res) =>{
+
+  var item = req.body.newItem; //Accessing the input from list.ejs by using body parser 
   
-    default:
-      console.log("There is something went wrong!");
-      break;
-  }
-  res.render("list", {kindOfDay: day})
+  items.push(item);//Push it new Todo item to Array
 
-}); 
+  res.redirect("/"); //Redirect the given url to root
+
+});
 
 
-app.listen(3000,()=>{
-   console.log("Server is running on 3000 port.");
+app.listen(3000, () => {
+  console.log("Server is running on 3000 port.");
 });

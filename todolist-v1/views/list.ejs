@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weekend ToDo List</title>
-</head>
-<body>
-  <% if(kindOfDay === "Saturday" || kindOfDay === "Sunday"){%> 
-    <h1 style="color: brown;"> <%= kindOfDay %> ToDo list</h1>
-  <% }else{ %>      
-    <h1 style="color: yellow;"> <%= kindOfDay %> ToDo List </h1>
-    <% } %> 
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekend ToDo List</title>
+  </head>
+  <body>
+    <h1><%= kindOfDay %></h1>
+
+    <ul>
+      <% newListItems.forEach(newListItem => { %>
+         <li><%= newListItem %> </li>
+      <%}); %> 
+    </ul>
+
+    <form action="/" method="POST" class="">
+      <input
+        type="text"
+        name="newItem"
+        placeholder="Add your new ToDo "
+        autocomplete="off"
+      />
+      <button type="submit" name="button">+</button>
+    </form>
+  </body>
+</html>
