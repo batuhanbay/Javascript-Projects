@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const { static } = require("express");
 
 
 const app = express();
@@ -11,7 +12,7 @@ app.set('view engine', 'ejs'); // Process of Setting EJS to project
 
 
 app.use(bodyParser.urlencoded({ extended: true })); // To use body parser , set extended as true
-
+app.use(express.static("public")); // In order to access static files resources by using express static method
 
 app.get("/", (req, res) => {
 

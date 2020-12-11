@@ -4,24 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weekend ToDo List</title>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <h1><%= kindOfDay %></h1>
+    <div class="box" id="heading">
+      <h1><%= kindOfDay %></h1>
+    </div>
 
-    <ul>
+    <div class="box">
       <% newListItems.forEach(newListItem => { %>
-         <li><%= newListItem %> </li>
-      <%}); %> 
-    </ul>
+      <div class="item">
+        <input type="checkbox" />
+        <p><%= newListItem %></p>
+      </div>
+      <%}); %>
 
-    <form action="/" method="POST" class="">
-      <input
-        type="text"
-        name="newItem"
-        placeholder="Add your new ToDo "
-        autocomplete="off"
-      />
-      <button type="submit" name="button">+</button>
-    </form>
+      <form action="/" method="POST" class="item">
+        <input
+          type="text"
+          name="newItem"
+          placeholder="Add Your New ToDo Item"
+          autocomplete="off"
+        />
+        <button type="submit" name="button">+</button>
+      </form>
+    </div>
   </body>
 </html>
