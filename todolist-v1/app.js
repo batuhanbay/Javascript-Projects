@@ -1,12 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { static } = require("express");
-
-
+const date = require(`${__dirname}/date.js`);
 const app = express();
 
 
-let items=[];//Arrays for store new ToDo Items
+const items = [];//Arrays for store new ToDo Items in root page
+const workItems = []; //Arrays for store new ToDo Items in work page
 
 app.set('view engine', 'ejs'); // Process of Setting EJS to project 
 
@@ -16,34 +16,47 @@ app.use(express.static("public")); // In order to access static files resources 
 
 app.get("/", (req, res) => {
 
-  const options = {//The object was created in order to use date of format method
-    weekday : "long",
-    day: "numeric",
-    month: "long"
-  };
-  const today = new Date(); //DateConstructor
-  const day = today.toLocaleDateString("en-US",options); //Format the day variable
+  let day = date.getDay();
 
   res.render("list", { //Rendering process
-    kindOfDay: day ,
+    listTitle: day,
     newListItems: items
-  
+
   });
 
 });
 
+app.get("/work", (req, res) => {
 
-app.post("/",(req,res) =>{
-
-  var item = req.body.newItem; //Accessing the input from list.ejs by using body parser 
-  
-  items.push(item);//Push it new Todo item to Array
-
-  res.redirect("/"); //Redirect the given url to root
+  res.render("list", {
+    listTitle: "Work",
+    newListItems: workItems
+  }
+  );
 
 });
 
 
+app.post("/", (req, res) => {
+
+  let item = req.body.newItem; //Accessing the input from list.ejs by using body parser 
+
+  if (req.body.button === "Work") { //Check the post request where it's coming
+    workItems.push(item);//Push it new Todo item to Array for /work page
+    res.redirect("/work"); //Redirect the given url to root
+  } else {
+    items.push(item);//Push it new Todo item to Array
+    res.redirect("/"); //Redirect the given url to root
+  }
+
+});
+
+
+app.post("/work", (req, res) => {
+  res.redirect("/");
+});
+
 app.listen(3000, () => {
   console.log("Server is running on 3000 port.");
+  console.log(date);
 });
