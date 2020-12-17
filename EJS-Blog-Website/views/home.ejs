@@ -5,6 +5,7 @@
 
 <% posts.forEach(post => { %>
   <h1><%= post.title %></h1>
-  <p><%= post.content %> </p>
+  <p><%= `${post.content.substring(0,250)}...`  %></p>
+  <a class="btn btn-primary" style="background-color:  #1abc9c" href="/posts/:<%= post.title %>">Read More</a>
 <% }); %>
 <%- include("partial/footer.ejs") %> 
