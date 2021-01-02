@@ -51,8 +51,8 @@ app.get("/", (req, res) => {
         } else {
           console.log("Succesfully saved all the items to DB.");
         }
+        res.redirect("/");
       });
-      res.redirect("/");
     } else {
       res.render("list", { listTitle: "Today", newListItems: foundItems });
     }
