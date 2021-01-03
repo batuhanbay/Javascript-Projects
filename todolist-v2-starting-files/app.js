@@ -94,6 +94,15 @@ app.post("/", (req, res) => {
 
 });
 
+app.post("/delete", (req,res) =>{
+
+  const checkedItemId = req.body.checkbox;
+  Item.findByIdAndRemove(checkedItemId, err =>{ // Remove item from database by using its _id 
+    (!err) ? console.log("Succesfully deleted checked item.") : console.log("Unsuccesfull process. Could not deleted.");
+    res.redirect("/");
+  });
+
+});
 
 app.post("/work", (req, res) => {
   res.redirect("/");
