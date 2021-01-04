@@ -38,6 +38,12 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3];
 
+const listSchema = new mongoose.Schema({
+  name: String,
+  items: [itemsSchema]
+});
+
+const List = mongoose.model("List",listSchema);
 
 app.get("/", (req, res) => {
 
@@ -60,39 +66,54 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/work", (req, res) => {
+app.get("/:customListName", (req, res) => {
+  const customListName = req.params.customListName;
 
-  res.render("list", {
-    listTitle: "Work",
-    newListItems: workItems
-  }
-  );
-
+  List.findOne({ name: customListName }, (err, foundList) => {
+    if (!err) {
+      if (!foundList) {
+        // Create a new list
+        const list = new List({
+          name: customListName,
+          items: defaultItems,
+        });
+        list.save(() => { //save method works async , Redirecting in the callback of the save() funtion ensures that it happens after a successful insert.
+          res.redirect(`/${customListName}`);
+        });
+      } else {
+        // Show an existing list
+        res.render("list", {
+          listTitle: foundList.name,
+          newListItems: foundList.items,
+        });
+      }
+    }
+  });
 });
-
 
 app.post("/", (req, res) => {
 
   const newItem = req.body.newItem; //Accessing the input from list.ejs by using body parser
-
+  const listName = req.body.list;
+  
   const item = new Item({ //This is going to be a new item and this is to show that I'm creating this document
                            //from this model that we specified.
     name: newItem
   });
 
-  item.save();// this calls the save method in Mongoose to save this item document into a items collection inside our todolistDB.
-
-  res.redirect("/");
-
-  // if (req.body.button === "Work") { //Check the post request where it's coming
-  //   workItems.push(item);//Push it new Todo item to Array for /work page
-  //   res.redirect("/work"); //Redirect the given url to root
-  // } else {
-  //   items.push(item);//Push it new Todo item to Array
-  //   res.redirect("/"); //Redirect the given url to root
-  // }
-
+  if(listName ==="Today"){
+    item.save();// this calls the save method in Mongoose to save this item document into a items collection inside our todolistDB.
+    res.redirect("/");
+  }else{
+    List.findOne({name: listName}, (err, foundList) =>{
+      foundList.items.push(item);
+      foundList.save(() => { //save method works async , Redirecting in the callback of the save() funtion ensures that it happens after a successful insert.
+        res.redirect(`/${listName}`);
+      });
+    });
+  }
 });
+
 
 app.post("/delete", (req,res) =>{
 
