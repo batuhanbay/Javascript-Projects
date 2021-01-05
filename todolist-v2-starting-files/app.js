@@ -16,7 +16,8 @@ app.use(express.static("public")); // In order to access static files resources 
 
 mongoose.connect("mongodb://localhost:localhost:27017/todolistDB", {  //connect database which name is given as todolistDB to localhost:27017
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify : false
 });
 
 const itemsSchema = new mongoose.Schema({//this layout the foundation for every new item document that will be added to our database
@@ -114,19 +115,25 @@ app.post("/", (req, res) => {
   }
 });
 
-
 app.post("/delete", (req,res) =>{
 
   const checkedItemId = req.body.checkbox;
-  Item.findByIdAndRemove(checkedItemId, err =>{ // Remove item from database by using its _id 
-    (!err) ? console.log("Succesfully deleted checked item.") : console.log("Unsuccesfull process. Could not deleted.");
-    res.redirect("/");
-  });
 
-});
+  const listName = req.body.listName;
 
-app.post("/work", (req, res) => {
-  res.redirect("/");
+  if(listName === "Today"){
+    Item.findByIdAndRemove(checkedItemId, err =>{ // Remove item from database by using its _id 
+      (!err) ? console.log("Succesfully deleted checked item.") : console.log("Unsuccesfull process. Could not deleted.");
+      res.redirect("/");
+    });
+  }else{
+    List.findOneAndUpdate({name: listName},{$pull: {items: {_id: checkedItemId}}}, (err, foundList) =>{
+        if(!err){
+          res.redirect(`/${listName}`);
+        }
+    });
+  }
+  
 });
 
 app.listen(3000, () => {
