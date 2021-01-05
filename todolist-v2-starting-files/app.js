@@ -16,10 +16,9 @@ app.use(express.static("public")); // In order to access static files resources 
 
 mongoose.connect("mongodb://localhost:localhost:27017/todolistDB", {  //connect database which name is given as todolistDB to localhost:27017
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify : false
 });
-
+mongoose.set('useFindAndModify', false);
+mongoose.set('useUnifiedTopology', true); 
 const itemsSchema = new mongoose.Schema({//this layout the foundation for every new item document that will be added to our database
   name: String
 });
@@ -91,7 +90,7 @@ app.get("/:customListName", (req, res) => {
     }
   });
 });
-
+app.get('/favicon.ico', (req, res) => res.status(204));
 app.post("/", (req, res) => {
 
   const newItem = req.body.newItem; //Accessing the input from list.ejs by using body parser
@@ -122,7 +121,7 @@ app.post("/delete", (req,res) =>{
   const listName = req.body.listName;
 
   if(listName === "Today"){
-    Item.findByIdAndRemove(checkedItemId, err =>{ // Remove item from database by using its _id 
+    Item.findByIdAndRemove(checkedItemId, (err) =>{ // Remove item from database by using its _id 
       (!err) ? console.log("Succesfully deleted checked item.") : console.log("Unsuccesfull process. Could not deleted.");
       res.redirect("/");
     });
