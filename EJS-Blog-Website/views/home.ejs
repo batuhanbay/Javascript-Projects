@@ -1,11 +1,12 @@
 
 <%- include("partial/header.ejs") %> 
+
 <h1>HOME</h1>
 <p><%= startingContent %> </p>
 
-<% posts.forEach(post => { %>
+<% posts.forEach(post => { %> 
   <h1><%= post.title %></h1>
-  <p><%= `${post.content.substring(0,250)}...`  %></p>
-  <a class="btn btn-primary" style="background-color:  #1abc9c" href="/posts/:<%= post.title %>">Read More</a>
+  <p><%= `${post.content.substring(0,800)}...`  %></p>
+  <a class="btn btn-primary" style="background-color:  #1abc9c; margin-bottom: 2rem;" href="/posts/<%= post._id %>">Read More</a>
 <% }); %>
 <%- include("partial/footer.ejs") %> 
