@@ -33,7 +33,7 @@ function handlerClick() {
     //Specifies request
     xhttp.open(
       "GET",
-      `http://www.omdbapi.com/?i=${movieImdbID}&apikey=82eb68c4`,
+      `https://www.omdbapi.com/?i=${movieImdbID}&apikey=82eb68c4`,
       true
     );
   
