@@ -7,12 +7,33 @@
   <link rel="stylesheet" href="./style.css">
   <title>Movie Review</title>
 </head>
-<body>
-  <div class="container">
-    <label for="movieId">IMDB Movie ID:</label>
-    <input id="movieId" type="text">
-    <button></button>
+<body onload="init()">
+  <label for="movieid"> IMDB Movie ID:</label><br />
+  <input type="text" id="movieid" />
+  <button type="button" id="submitid">Submit Movie Id</button>
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="movieinfo"></div>
+  <br />
+  <br />
+  <div id="moviereview" style="display: none">
+    <label for="reviewername">Enter your name: </label><br />
+    <input type="type" id="reviewername" />
+    <br />
+    <label for="reviewerscore">Enter your movie score out of 10: </label
+    ><br />
+    <input type="text" id="reviewerscore" />
+    <br />
+    <label for="review">Enter your movie review </label><br />
+    <textarea id="review" rows="5" cols="33"></textarea>
+    <br />
+    <button type="button" id="submitreview">Submit Movie Review</button>
   </div>
-    
+
+  <div id="moviereviews"></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
