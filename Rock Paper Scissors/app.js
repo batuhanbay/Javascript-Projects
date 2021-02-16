@@ -86,44 +86,44 @@ startGameBtn.addEventListener('click', () => {
 //not related to game 
 //take argument as a demand from user by using diferrent ways
 
-const sumUp = (...numbers) => {
-  const validNumber = (number) => {
-    return isNaN(number) ? 0 : number;
-  }
-  let sum = 0;
-  for(const number of numbers) {
-    sum += validNumber(number);
-  }
-  return sum;
-};
+// const sumUp = (...numbers) => {
+//   const validNumber = (number) => {
+//     return isNaN(number) ? 0 : number;
+//   }
+//   let sum = 0;
+//   for(const number of numbers) {
+//     sum += validNumber(number);
+//   }
+//   return sum;
+// };
 
 
-const substractUp = function() {
-  let sum = 0;
-  for (const num of arguments) { // dont highly recommended!
-    sum -= num;
-  }
-  return sum;
-}
+// const substractUp = function() {
+//   let sum = 0;
+//   for (const num of arguments) { // dont highly recommended!
+//     sum -= num;
+//   }
+//   return sum;
+// }
 
-console.log(sumUp(1,2,3,4,5,6));
-console.log(substractUp(10,1,2,4));
+// console.log(sumUp(1,2,3,4,5,6));
+// console.log(substractUp(10,1,2,4));
 
 //theory of callback function
 
-const sumUp2 = (resultHandler,...numbers) => {
-  const validNumber = (number) => {
-    return isNaN(number) ? 0 : number;
-  }
-  let sum = 0;
-  for(const number of numbers) {
-    sum += validNumber(number);
-  }
-  resultHandler(sum);
-};
+// const sumUp2 = (resultHandler,...numbers) => {
+//   const validNumber = (number) => {
+//     return isNaN(number) ? 0 : number;
+//   }
+//   let sum = 0;
+//   for(const number of numbers) {
+//     sum += validNumber(number);
+//   }
+//   resultHandler(sum);
+// };
 
-const showResult = (result) => {
-  alert(result);
-}
+// const showResult = (result) => {
+//   alert(result);
+// }
 
-sumUp2(showResult,1,3,5,1);
+//sumUp2(showResult,1,3,5,1);
