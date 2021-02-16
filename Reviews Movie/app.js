@@ -12,31 +12,34 @@ function init() {
 function handlerClick() {
   let movieImdbID = document.getElementById("movieid").value;
   //console.log(movieImdbID);
+  if(movieImdbID.length == 0){
+    alert("Invalid input. Please enter valid movie id. Such as tt0167260).");
+  }else{
+    const xhttp = new XMLHttpRequest();
 
-  const xhttp = new XMLHttpRequest();
-
-  //This is only going to get called when ready state changes
-  xhttp.onreadystatechange = function () {
-    //If the response is available and was successful
-    if (this.readyState == 4 && this.status == 200) {
-      //Take the response text, parse it into JS object
-      let responseMovie = JSON.parse(xhttp.responseText);
-      //Push the response which is movie into array
-      movies.push(responseMovie);
-      //update the page
-      render();
-    }
-  };
-
-  //Specifies request
-  xhttp.open(
-    "GET",
-    `http://www.omdbapi.com/?i=${movieImdbID}&apikey=82eb68c4`,
-    true
-  );
-
-  //Send Request
-  xhttp.send();
+    //This is only going to get called when ready state changes
+    xhttp.onreadystatechange = function () {
+      //If the response is available and was successful
+      if (this.readyState == 4 && this.status == 200) {
+        //Take the response text, parse it into JS object
+        let responseMovie = JSON.parse(xhttp.responseText);
+        //Push the response which is movie into array
+        movies.push(responseMovie);
+        //update the page
+        render();
+      }
+    };
+  
+    //Specifies request
+    xhttp.open(
+      "GET",
+      `http://www.omdbapi.com/?i=${movieImdbID}&apikey=82eb68c4`,
+      true
+    );
+  
+    //Send Request
+    xhttp.send();
+  }
 }
 
 //render process
@@ -53,7 +56,7 @@ function render() {
     `;
   });
   document.getElementById("movieinfo").innerHTML = content;
-
+  document.getElementById("containerMovie").style.display = "flex";
   document.getElementById("moviereview").style.display = "block";
 }
 

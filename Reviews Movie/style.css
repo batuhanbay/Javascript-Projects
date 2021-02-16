@@ -4,9 +4,47 @@
   padding: 0;
 }
 
+
 .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
   padding: 1rem 2rem;
   text-align: center;
-  background-color: aquamarine;
-
+  background-color: #FBD786;
 }
+
+.movieInput, .movieInput:focus{
+  border-radius: .5rem;
+  height: 1.5rem;
+  border-color: #f7797d;
+  padding:.25rem;
+  outline-color: #f7797d;
+  outline-width: 0;
+}
+.movieLabel{
+  color: #f7797d;
+  margin-right:.5rem;
+}
+
+.submitButton, .submitButton:focus{
+  margin-left: 1rem;
+  padding:.25rem;
+  border: 2px solid #f7797d;
+  border-radius: .5rem;
+  text-transform: uppercase;
+  background-color: #C6FFDD;
+  color: #f7797d;
+  outline-width: 0;
+}
+
+.container__movie{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  background-image: linear-gradient(to bottom, #FBD786, #f7797d);
+  padding-bottom:5rem ;
+}
+

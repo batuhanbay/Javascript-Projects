@@ -8,32 +8,33 @@
   <title>Movie Review</title>
 </head>
 <body onload="init()">
-  <label for="movieid"> IMDB Movie ID:</label><br />
-  <input type="text" id="movieid" />
-  <button type="button" id="submitid">Submit Movie Id</button>
-  <br />
-  <br />
-  <br />
-  <br />
-  <div id="movieinfo"></div>
-  <br />
-  <br />
-  <div id="moviereview" style="display: none">
-    <label for="reviewername">Enter your name: </label><br />
-    <input type="type" id="reviewername" />
-    <br />
-    <label for="reviewerscore">Enter your movie score out of 10: </label
-    ><br />
-    <input type="text" id="reviewerscore" />
-    <br />
-    <label for="review">Enter your movie review </label><br />
-    <textarea id="review" rows="5" cols="33"></textarea>
-    <br />
-    <button type="button" id="submitreview">Submit Movie Review</button>
+  <div class="container">
+    <label for="movieid" class="movieLabel">tt0167260 IMDB Movie ID:</label><br />
+    <input type="text" id="movieid" class="movieInput" placeholder="tt0167260" />
+    <button type="button" id="submitid" class="submitButton">Submit Movie Id</button>
   </div>
 
-  <div id="moviereviews"></div>
-
+  <div id="containerMovie" class="container__movie" style="display: none">
+    <div id="movieinfo"></div>
+    <br />
+    <br />
+    <div id="moviereview"  style="display: none">
+      <label for="reviewername">Enter your name: </label><br />
+      <input type="type" id="reviewername" />
+      <br />
+      <label for="reviewerscore">Enter your movie score out of 10: </label
+      ><br />
+      <input type="text" id="reviewerscore" />
+      <br />
+      <label for="review">Enter your movie review </label><br />
+      <textarea id="review" rows="5" cols="33"></textarea>
+      <br />
+      <button type="button" id="submitreview" class="submitButton">Submit Movie Review</button>
+    </div>
+  
+    <div id="moviereviews"></div>
+  
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
