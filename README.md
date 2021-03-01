@@ -4,7 +4,7 @@
 
 This web apllication is calulator as you can undersdand from name. 
 There is only thing  different compare to other calculators that is only one input  involves in this application. 
-First you pass a number into input than select the operation. And it contuines so on.
+First you pass a number into input than select the operation. And it continues so on.
 
 Main goal is:
 - Introduction to Javascript
@@ -30,7 +30,7 @@ Link of the website: https://batuhanbay.github.io/Javascript-Projects/Dice%20Gam
 There are two players and the game is played in rounds in this project. In each turn, a player rolls a dice as many times as the player wishes and each result gets added to player's round score.
 But if the player rolls a 1, then all player's round score gets lost and after that then it's the next player's turn.
 But in order to avoid that, the player can choose to hold which means that his round score gets added to his global score.
-After that, it's again the next player's turn. Atbthe end the first player to then reach 100 points on the global score wins the game.
+After that, it's again the next player's turn. At the end the first player to then reach 100 points on the global score wins the game.
 
 
 Main goal is:
@@ -148,3 +148,103 @@ Main goal is:
 
 
 Link of the website: https://batuhanbay.github.io/Javascript-Projects/Budget%20Calculator/
+
+## 11 - Introduction To Node-v1
+
+In this application has been builded for  write Javascript code and execute it to affect computer, including
+manipulating and reading and writing to local file system by using Node.js.
+There is a pure simple text file which is called file1.txt in the project. There is  little bit of text in this file.
+Application will use method which called copyFileSync which is in file system module, in order to create a copy of my file1.
+
+Main goal is:
+- Read and understand documentation of Node.js.
+- Learning how to access and manipulate the local files by using Node.js.
+- Learning how to use native Node modules that is bundled with Node.js
+
+
+## 12 - Introduction To Node-v2
+
+Application which has been builded for generate superhero names randomly and log it in console.
+
+Main goal is:
+- Learning NPM  for external modules in order to incorporate packages into projects.
+- Learning how to initialize NPM.
+- Understand the process of  package file how it is working.
+
+## 13 - BMI Calculator
+
+Web application, with a server using Node and Express to create a simple web site that acts as a calculator and BMI calculator,
+In order to use this web application which is for calculator enter two numbers and hit calculate button than get the result back on web site.
+For BMI calculator, firstly go to /bmicalculator route enter your weight and height than hit calculate button than get the result back on web site as well.
+
+
+Main goal is:
+- Learn how to make code run in server side.
+- Learning create server with Express.
+- Learn handling request and responses (GET request).
+- Understanding and Working with Routes.
+- Learn responding to requests with HTML Files.
+- Learn processing post requests with Body Parser.
+
+
+## 14 - Weather Condition
+
+Web application which displays to the user the temperature of a particular location that they are interested
+in, and also display a weather symbol for the weather conditions on the page.
+
+Main goal is:
+- Learning API Endpoints, Paths and Parameters.
+- Learning API Authentication and Postman.
+- Learn regarding theory of JSON.
+- Making GET Requests with the Node HTTPS Module.
+- Learn how to parse JSON.
+- Using Express to render a website with live API data.
+
+## 15 - Sign Up-v0 && Sign Up-v1
+
+This is an actual HTTPS web site  that has been builded for a newsletter app.
+Also, application is all down to integration with MailChimp and MailChimp APIs
+Moreover, it is a single page web site that looks nice on the front-end and it looks  simple
+on the backend.
+Application has some powerful functionality that will allow to sign people up to my mailing list on MailChimp.
+In order to use this app , user clicks to the sign up button once than if it was successful then user gets taken to the success page, and if it was not
+then user will get a failure page.
+
+Main goal is:
+- Practise with Bootstrap on front-end
+- Practise with Express and Body Parser.
+- Practise with  handle requests and responses for GET and POST request.
+- Learning and practise about connection between frontend and backend.
+- Getting exprerience about set web page up with the MailChimp API to send data over to MailChimp servers.
+
+## 16- Todolist-v1
+
+This project is To Do list application which shows user to the current date and month at the top of site and get to check off your to do list items.
+
+Main goal is:
+- Practise with Express and Body Parser.
+- Learning about theory of templates and practise with creating EJS Template.
+- Learning by reading documentation of EJS and practise how to run code inside the EJS Template on project.
+- Practising with passing data from webpage to server.
+- Understanding Node Module Exports (How to pass functions and data between files).
+
+## 17- Blog Website
+
+This is a beautiful personal blog or personal diary website.
+There is three pages which is home, about, contact and a compose page for post blog on home page.
+In order to post blog firstly user needs to go /compose route than enter title of the post and content of the post.
+Lastly user needs to click publish button. Once user click publih button, user's blog goes to home page.
+For reading any blog which has been posted on home page, there is a "Read More" button which is  for show up the post on dynamic blog page.
+
+Main goal is:
+Part-1
+- Practise with Express and Body Parser.
+- Practise with templates and creating EJS Template.
+- Practising with passing data from webpage to server.
+
+Part-2
+- Learning and practise with connect it with Mongoose
+- Learning add new item to Database.
+- Learning find item in database and render it on page.
+- Learning create custom posts using Express route parameters.
+- Practise about connection between frontend and backend.
