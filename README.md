@@ -237,6 +237,7 @@ Lastly user needs to click publish button. Once user click publih button, user's
 For reading any blog which has been posted on home page, there is a "Read More" button which is  for show up the post on dynamic blog page.
 
 Main goal is:
+
 Part-1
 - Practise with Express and Body Parser.
 - Practise with templates and creating EJS Template.
@@ -248,3 +249,64 @@ Part-2
 - Learning find item in database and render it on page.
 - Learning create custom posts using Express route parameters.
 - Practise about connection between frontend and backend.
+
+## 18- Todolist-v2
+
+This project is To Do list application which shows user to the current date and month at the top of site and get to check off your to do list items.
+
+Main goal is:
+
+- Practising with connect it with Mongoose.
+- Practising about rendering database items in the application.
+- Practising about adding new items to database.
+- Practising about deleting items from database.
+- Practising about creating custom lists using Express route parameters.
+- Learning and practising with Lodash and deleting items from custom ToDo lists.
+
+## 19- Wiki-API
+
+This project has been builded for a Wikipedia style API in order to build my own RESTful API.
+There is bunch of data relating to subjects which I have learned so far.
+I have used 3T Studio for connection to database. Beside using 3T Studio, I have used POSTMAN for making GET, POST, PATCH and DELETE operations.
+In order to see this datas , user needs to make request /articles route.
+As well as seeing all datas if user would like to see specific data, user needs to make request /articles/articleTitle such as /articles/DOM
+
+Main goal is:
+
+- Learning that what is REST?
+- Learning and practising about creating a Database with Robo 3T.
+- Practising about set up the server.
+- Practising with GET, POST, DELETE, PUT, PATCH operations according to user request.
+- Learning and practising about chained route handlers by using Express.
+
+## 20- Sign Up-v2
+
+This is the application which is a demo of Whisper website. Application is a really simple concept basically
+allows users to submit their secrets anonymously. Structure of the website is simple.
+It has a home page which has two buttons that allows user to either go towards register or go towards
+log in and once the user has been registered or logged in and they have been authenticated then they
+are able to access the secrets page.
+
+Main goal is:
+
+- Introduction to Authentication and Security.
+- Practising with database topics such as CRUD operations.
+- Practising about set up the server.
+- Practising about connection between frontend and backend.
+
+Part-1
+- Learning and practising about register users with username and password.
+
+Part-2
+- Learning and practising about database encryption.
+- Learning and practising about using environment variables to keep secrets safe.
+
+Part-3
+- Learning and practising about hashing passwords.
+
+Part-4
+- Learning and practising about salting and hashing passwords with bcrypt.
+
+Part-5
+- Learning that what are cookies and sessions?
+- Learning and practising about using Passport.js to add cookies and sessions.
